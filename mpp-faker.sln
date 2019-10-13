@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generators", "Generators\Generators.csproj", "{A2D55900-4F6D-40F8-9F64-23E7E3900C6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Faker", "Faker\Faker.csproj", "{06F8A7DF-66D2-411D-A211-AB18AF970669}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2D55900-4F6D-40F8-9F64-23E7E3900C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2D55900-4F6D-40F8-9F64-23E7E3900C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2D55900-4F6D-40F8-9F64-23E7E3900C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2D55900-4F6D-40F8-9F64-23E7E3900C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06F8A7DF-66D2-411D-A211-AB18AF970669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06F8A7DF-66D2-411D-A211-AB18AF970669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06F8A7DF-66D2-411D-A211-AB18AF970669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06F8A7DF-66D2-411D-A211-AB18AF970669}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
