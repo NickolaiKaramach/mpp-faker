@@ -1,12 +1,13 @@
 using System;
+using Faker.Generators.Interface;
 
-namespace Generators
+namespace Faker.Generators.Primitive
 {
     public class BooleanGenerator : IGenerator
     {
         public object Generate()
         {
-            return Util.GetRandom().Next(0, 1) == 1;
+            return Util.Util.GetRandom().Next(0, 1) == 1;
         }
 
         public Type GetGenerationType()

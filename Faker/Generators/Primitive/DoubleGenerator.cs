@@ -1,12 +1,13 @@
 using System;
+using Faker.Generators.Interface;
 
-namespace Generators
+namespace Faker.Generators.Primitive
 {
     public class DoubleGenerator : IGenerator
     {
         public object Generate()
         {
-            return Util.GetRandom().NextDouble();
+            return Util.Util.GetRandom().NextDouble();
         }
 
         public Type GetGenerationType()

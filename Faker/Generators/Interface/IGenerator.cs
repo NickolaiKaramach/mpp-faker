@@ -1,10 +1,10 @@
 using System;
 
-namespace Generators
+namespace Faker.Generators.Interface
 {
     public interface IGenerator
     {
-        Object Generate();
+        object Generate();
 
         Type GetGenerationType();
     }

@@ -1,14 +1,14 @@
 using System;
 using System.Text;
+using Faker.Generators.Interface;
 
-namespace Generators
+namespace Faker.Generators.Object
 {
     public class StringGenerator : IGenerator
     {
-        private static readonly Random Random = Util.GetRandom();
+        private static readonly Random Random = Util.Util.GetRandom();
 
-        private static readonly String _dictionary =
-            "$%#@!*abcdefghijklmnopqrstuvwxyz1234567890?;:ABCDEFGHIJKLMNOPQRSTUVWXYZ^&";
+        private const string Dictionary = "$%#@!*abcdefghijklmnopqrstuvwxyz1234567890?;:ABCDEFGHIJKLMNOPQRSTUVWXYZ^&";
 
         public object Generate()
         {
@@ -17,9 +17,9 @@ namespace Generators
             var size = Random.Next(1, 80);
             for (var i = 0; i < size; i++)
             {
-                int indexInDictionary = Random.Next(0, _dictionary.Length - 1);
-                
-                var symbol = _dictionary[indexInDictionary];
+                var indexInDictionary = Random.Next(0, Dictionary.Length - 1);
+
+                var symbol = Dictionary[indexInDictionary];
                 builder.Append(symbol);
             }
 

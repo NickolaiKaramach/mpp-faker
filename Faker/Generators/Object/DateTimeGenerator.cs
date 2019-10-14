@@ -1,12 +1,13 @@
 using System;
+using Faker.Generators.Interface;
 
-namespace Generators
+namespace Faker.Generators.Object
 {
     public class DateTimeGenerator : IGenerator
     {
         public object Generate()
         {
-            return DateTime.Now.AddDays(Util.GetRandom().Next(1000));
+            return DateTime.Now.AddDays(Util.Util.GetRandom().Next(1000));
         }
 
         public Type GetGenerationType()

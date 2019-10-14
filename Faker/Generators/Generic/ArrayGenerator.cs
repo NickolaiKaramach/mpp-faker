@@ -1,14 +1,15 @@
 using System;
+using Faker.Generators.Interface;
 
-namespace Generators
+namespace Faker.Generators.Generic
 {
-    class ArrayGenerator<T> : IGenerator
+    internal class ArrayGenerator<T> : IGenericGenerator
     {
         public object Generate()
         {
             var type = typeof(T);
 
-            var arrLength = Util.GetRandom().Next(1, 15);
+            var arrLength = Util.Util.GetRandom().Next(1, 15);
             var result = Array.CreateInstance(type, arrLength);
 
             var faker = new Faker();

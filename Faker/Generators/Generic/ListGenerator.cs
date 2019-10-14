@@ -1,20 +1,21 @@
 using System;
 using System.Collections.Generic;
+using Faker.Generators.Interface;
 
-namespace Generators
+namespace Faker.Generators.Generic
 {
-    public class ListGenerator<T> : IGenerator
+    public class ListGenerator<T> : IGenericGenerator
     {
         public object Generate()
         {
             var list = new List<T>();
-            
-            var size = Util.GetRandom().Next(1, 15);
-            
+
+            var size = Util.Util.GetRandom().Next(1, 15);
+
             var faker = new Faker();
             for (var i = 0; i < size; i++)
             {
-                var item = (T)faker.Create<T>();
+                var item = (T) faker.Create<T>();
                 list.Add(item);
             }
 

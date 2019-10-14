@@ -1,12 +1,13 @@
 using System;
+using Faker.Generators.Interface;
 
-namespace Generators
+namespace Faker.Generators.Primitive
 {
     public class LongGenerator : IGenerator
     {
         public object Generate()
         {
-            return (long) (Util.GetRandom().NextDouble() * long.MaxValue);
+            return (long) (Util.Util.GetRandom().NextDouble() * long.MaxValue);
         }
 
         public Type GetGenerationType()
