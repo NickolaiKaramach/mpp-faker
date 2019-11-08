@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using Faker.Generators.Interface;
@@ -12,6 +13,10 @@ namespace Faker
 
         private readonly Dictionary<Type, IGenerator> _generators;
         private readonly List<IGenericGeneratorFactory> _genericGeneratorFactories;
+
+        //Temporary solution for hard coding constant
+        private readonly String DirectoryDefaultPath =
+            Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..")) + "\\Generators";
 
         public Faker()
         {
@@ -76,6 +81,7 @@ namespace Faker
         {
             var currentAssembly = Assembly.GetExecutingAssembly();
             LoadGeneratorsFromAssembly(currentAssembly);
+            LoadGeneratorsFromDirectory();
         }
 
         private void LoadGeneratorsFromAssembly(Assembly assembly)
@@ -219,6 +225,29 @@ namespace Faker
             var instance = constructorInfo.Invoke(constructorParameters.ToArray());
 
             return instance;
+        }
+
+        private void LoadGeneratorsFromDirectory()
+        {
+            if (_generators == null)
+            {
+                return;
+            }
+
+            var pluginDirectory = new DirectoryInfo(DirectoryDefaultPath);
+            if (!pluginDirectory.Exists)
+            {
+                pluginDirectory.Create();
+                return;
+            }
+
+            var pluginFiles = Directory.GetFiles(pluginDirectory.FullName, "*.dll");
+
+            foreach (var pluginFile in pluginFiles)
+            {
+                var assembly = Assembly.LoadFrom(pluginFile);
+                LoadGeneratorsFromAssembly(assembly);
+            }
         }
     }
 }
