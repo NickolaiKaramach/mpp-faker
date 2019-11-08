@@ -13,7 +13,7 @@ namespace UnitTests
         {
             var faker = new Faker.Faker();
 
-            var list = faker.Create<List<int>>() as List<int>;
+            var list = faker.Create<List<int>>();
 
             Assert.IsNotNull(list);
             Assert.AreNotEqual(list, default);
@@ -22,7 +22,7 @@ namespace UnitTests
         [Test]
         public void TestCreateClassWithInnerClass()
         {
-            var myObject = _faker.Create<MyClass>() as MyClass;
+            var myObject = _faker.Create<MyClass>();
 
             Assert.IsNotNull(myObject);
             Assert.IsNull(myObject.InnerClass.MyClass);
@@ -79,7 +79,7 @@ namespace UnitTests
             fakerConfig.Add<Foo, string, FooStringGenerator>(foo => foo.Field);
 
             var faker = new Faker.Faker(fakerConfig);
-            var myFoo = faker.Create<Foo>() as Foo;
+            var myFoo = faker.Create<Foo>();
 
             Assert.NotNull(myFoo);
             Assert.AreEqual(myFoo.Field, "TEST");
@@ -92,7 +92,7 @@ namespace UnitTests
             fakerConfig.Add<Foo, int, FooIntGenerator>(foo => foo.FieldInt);
 
             var faker = new Faker.Faker(fakerConfig);
-            var myFoo = faker.Create<Foo>() as Foo;
+            var myFoo = faker.Create<Foo>();
 
             Assert.NotNull(myFoo);
             Assert.AreEqual(myFoo.FieldInt, 123);
@@ -112,7 +112,7 @@ namespace UnitTests
         [Test]
         public void METHOD()
         {
-            A a = (A) _faker.Create<A>();
+            A a = _faker.Create<A>();
             Assert.NotNull(a.B);
             Assert.Null(a.B.A);
         }
@@ -120,7 +120,7 @@ namespace UnitTests
         [Test]
         public void ListTest()
         {
-            var list = _faker.Create<List<int>>() as List<int>;
+            var list = _faker.Create<List<int>>();
 
             Assert.IsNotNull(list);
             Assert.AreNotEqual(list, default);

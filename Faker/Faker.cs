@@ -29,11 +29,11 @@ namespace Faker
             LoadGenerators();
         }
 
-        public object Create<T>()
+        public T Create<T>()
         {
             var type = typeof(T);
 
-            if (_config.Excluded(type) || type.IsAbstract) return null;
+            if (_config.Excluded(type) || type.IsAbstract) return default(T);
 
             _config.ExcludeType(type);
 
@@ -69,7 +69,7 @@ namespace Faker
             }
 
             _config.RemoveFromExcludedTypes(type);
-            return instance;
+            return (T) instance;
         }
 
         private void LoadGenerators()
