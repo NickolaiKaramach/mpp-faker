@@ -98,6 +98,35 @@ namespace UnitTests
             Assert.AreEqual(myFoo.FieldInt, 123);
         }
 
+        class A
+        {
+            public B B { get; set; }
+            
+        }
+        
+        class B
+        {
+            public A A { get; set; }
+        }
+
+        [Test]
+        public void METHOD()
+        {
+            A a = (A) _faker.Create<A>();
+            Assert.NotNull(a.B);
+            Assert.Null(a.B.A);
+        }
+
+        [Test]
+        public void ListTest()
+        {
+            var list = _faker.Create<List<int>>() as List<int>;
+
+            Assert.IsNotNull(list);
+            Assert.AreNotEqual(list, default);
+        }
+        
+
         private enum MyEnum
         {
             One,
@@ -105,4 +134,6 @@ namespace UnitTests
             Three
         }
     }
+
+    
 }
