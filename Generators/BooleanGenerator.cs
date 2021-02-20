@@ -1,6 +1,6 @@
 using System;
 using Faker.Generators.Interface;
-
+// Hello world
 namespace Faker.Generators.Primitive
 {
     public class BooleanGenerator : IGenerator
